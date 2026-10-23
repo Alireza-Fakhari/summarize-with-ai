@@ -9,6 +9,9 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Boots the plugin and wires its components to WordPress.
+ */
 final class Plugin {
 
 	/**
@@ -31,12 +34,17 @@ final class Plugin {
 		}
 	}
 
+	/**
+	 * Load translations.
+	 */
 	public static function load_textdomain() {
 		load_plugin_textdomain( 'summarize-with-ai', false, dirname( plugin_basename( SWAI_FILE ) ) . '/languages' );
 	}
 
 	/**
 	 * Absolute URL of a file inside assets/.
+	 *
+	 * @param string $path Path relative to assets/.
 	 */
 	public static function asset( $path ) {
 		return SWAI_URL . 'assets/' . ltrim( $path, '/' );

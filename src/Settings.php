@@ -9,6 +9,9 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Reads, defaults and sanitizes the plugin settings.
+ */
 final class Settings {
 
 	const OPTION = 'swai_settings';
@@ -20,6 +23,11 @@ final class Settings {
 	 */
 	private static $cache = null;
 
+	/**
+	 * Get all settings, or one value by key.
+	 *
+	 * @param string|null $key Setting key, or null for all.
+	 */
 	public static function get( $key = null ) {
 		if ( null === self::$cache ) {
 			$saved       = get_option( self::OPTION, array() );
@@ -31,10 +39,16 @@ final class Settings {
 		return isset( self::$cache[ $key ] ) ? self::$cache[ $key ] : null;
 	}
 
+	/**
+	 * Clear the cached value.
+	 */
 	public static function flush() {
 		self::$cache = null;
 	}
 
+	/**
+	 * Default settings.
+	 */
 	public static function defaults() {
 		return array(
 			// Content.
@@ -90,6 +104,8 @@ final class Settings {
 
 	/**
 	 * Choice lists shared by the settings UI and the sanitizer.
+	 *
+	 * @param string $key Setting key.
 	 */
 	public static function choices( $key ) {
 		$choices = array(
@@ -141,13 +157,13 @@ final class Settings {
 		$d   = self::defaults();
 		$out = array();
 
-		$text = static function ( $key ) use ( $in, $d ) {
+		$text   = static function ( $key ) use ( $in, $d ) {
 			return isset( $in[ $key ] ) ? sanitize_text_field( $in[ $key ] ) : $d[ $key ];
 		};
-		$bool = static function ( $key ) use ( $in ) {
+		$bool   = static function ( $key ) use ( $in ) {
 			return empty( $in[ $key ] ) ? 0 : 1;
 		};
-		$int = static function ( $key, $min, $max ) use ( $in, $d ) {
+		$int    = static function ( $key, $min, $max ) use ( $in, $d ) {
 			$v = isset( $in[ $key ] ) ? (int) $in[ $key ] : $d[ $key ];
 			return max( $min, min( $max, $v ) );
 		};
@@ -155,11 +171,11 @@ final class Settings {
 			$v = isset( $in[ $key ] ) ? (string) $in[ $key ] : '';
 			return array_key_exists( $v, self::choices( $key ) ) ? $v : $d[ $key ];
 		};
-		$color = static function ( $key ) use ( $in, $d ) {
+		$color  = static function ( $key ) use ( $in, $d ) {
 			$v = isset( $in[ $key ] ) ? sanitize_hex_color( $in[ $key ] ) : '';
 			return $v ? $v : $d[ $key ];
 		};
-		$keys = static function ( $key ) use ( $in ) {
+		$keys   = static function ( $key ) use ( $in ) {
 			return array_values( array_unique( array_filter( array_map( 'sanitize_key', (array) ( isset( $in[ $key ] ) ? $in[ $key ] : array() ) ) ) ) );
 		};
 
@@ -175,7 +191,7 @@ final class Settings {
 		$out['modes'] = array();
 		$raw_modes    = isset( $in['modes'] ) && is_array( $in['modes'] ) ? $in['modes'] : array();
 		foreach ( $d['modes'] as $id => $mode ) {
-			$m                    = isset( $raw_modes[ $id ] ) && is_array( $raw_modes[ $id ] ) ? $raw_modes[ $id ] : array();
+			$m                   = isset( $raw_modes[ $id ] ) && is_array( $raw_modes[ $id ] ) ? $raw_modes[ $id ] : array();
 			$out['modes'][ $id ] = array(
 				'label'   => isset( $m['label'] ) && '' !== trim( $m['label'] ) ? sanitize_text_field( $m['label'] ) : $mode['label'],
 				'prompt'  => isset( $m['prompt'] ) && '' !== trim( $m['prompt'] ) ? sanitize_textarea_field( $m['prompt'] ) : $mode['prompt'],
@@ -185,8 +201,8 @@ final class Settings {
 		$out['default_mode'] = isset( $in['default_mode'] ) && isset( $out['modes'][ $in['default_mode'] ] ) ? $in['default_mode'] : 'summary';
 
 		// Services.
-		$out['custom'] = self::parse_custom_services( isset( $in['custom_text'] ) ? $in['custom_text'] : '', isset( $in['custom'] ) ? $in['custom'] : null );
-		$valid         = array_merge( array_keys( Services::builtin() ), wp_list_pluck( $out['custom'], 'id' ) );
+		$out['custom']  = self::parse_custom_services( isset( $in['custom_text'] ) ? $in['custom_text'] : '', isset( $in['custom'] ) ? $in['custom'] : null );
+		$valid          = array_merge( array_keys( Services::builtin() ), wp_list_pluck( $out['custom'], 'id' ) );
 		$out['enabled'] = array_values( array_intersect( $keys( 'enabled' ), $valid ) );
 		$order          = array_values( array_intersect( $keys( 'order' ), $valid ) );
 		$out['order']   = array_values( array_unique( array_merge( $order, $valid ) ) );
@@ -241,6 +257,9 @@ final class Settings {
 	/**
 	 * Custom services come from a textarea ("id|Name|URL with {q}|icon URL" per line)
 	 * or, on import, as an already structured array.
+	 *
+	 * @param string     $text Raw textarea input.
+	 * @param array|null $structured Structured rows from an import.
 	 */
 	private static function parse_custom_services( $text, $structured ) {
 		$rows = array();

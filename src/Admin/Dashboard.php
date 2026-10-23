@@ -16,10 +16,16 @@ use SummarizeWithAI\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Analytics dashboard screen.
+ */
 final class Dashboard {
 
 	const RANGES = array( 7, 30, 90 );
 
+	/**
+	 * Output the analytics dashboard.
+	 */
 	public static function render() {
 		if ( ! current_user_can( Admin::CAP ) ) {
 			return;
@@ -254,6 +260,16 @@ final class Dashboard {
 		<?php
 	}
 
+	/**
+	 * Output one KPI card.
+	 *
+	 * @param string   $icon Icon key.
+	 * @param string   $label Card label.
+	 * @param string   $value Formatted value.
+	 * @param int|null $delta Percent change.
+	 * @param array    $spark Sparkline values.
+	 * @param string   $foot Footer text.
+	 */
 	private static function kpi( $icon, $label, $value, $delta, $spark, $foot = '' ) {
 		?>
 		<div class="swai-card swai-kpi">
@@ -280,6 +296,9 @@ final class Dashboard {
 		<?php
 	}
 
+	/**
+	 * Output the card that invites enabling impressions.
+	 */
 	private static function kpi_cta() {
 		?>
 		<div class="swai-card swai-kpi swai-kpi--cta">
@@ -295,6 +314,10 @@ final class Dashboard {
 
 	/**
 	 * Plain-language observations derived from the report.
+	 *
+	 * @param array $r Report from Store::report().
+	 * @param int   $mobile Mobile clicks.
+	 * @param int   $desktop Desktop clicks.
 	 */
 	private static function insights( $r, $mobile, $desktop ) {
 		$t   = $r['totals'];
@@ -331,6 +354,11 @@ final class Dashboard {
 		return $out;
 	}
 
+	/**
+	 * Short localized date for chart labels.
+	 *
+	 * @param string $ymd Date as Y-m-d.
+	 */
 	public static function short_date( $ymd ) {
 		return date_i18n( 'M j', strtotime( $ymd ) );
 	}

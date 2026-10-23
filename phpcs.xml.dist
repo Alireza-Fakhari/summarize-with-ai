@@ -20,12 +20,12 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="summarize-with-ai"/>
+			<property name="text_domain" type="array"><element value="summarize-with-ai"/></property>
 		</properties>
 	</rule>
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="swai,SummarizeWithAI"/>
+			<property name="prefixes" type="array"><element value="swai"/><element value="SummarizeWithAI"/></property>
 		</properties>
 	</rule>
 </ruleset>

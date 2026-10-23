@@ -18,15 +18,24 @@ use WP_REST_Response;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * REST endpoint that records click and view beacons.
+ */
 final class Rest {
 
-	const RATE_LIMIT  = 60;  // Events per client…
-	const RATE_WINDOW = 600; // …per 10 minutes.
+	const RATE_LIMIT  = 60;  // Max events per client per window.
+	const RATE_WINDOW = 600; // Window length in seconds.
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'rest_api_init', array( __CLASS__, 'routes' ) );
 	}
 
+	/**
+	 * Register REST routes.
+	 */
 	public static function routes() {
 		register_rest_route(
 			'swai/v1',
@@ -66,6 +75,11 @@ final class Rest {
 		);
 	}
 
+	/**
+	 * Validate and record one event.
+	 *
+	 * @param WP_REST_Request $request Incoming request.
+	 */
 	public static function handle( WP_REST_Request $request ) {
 		if ( ! Settings::get( 'analytics' ) ) {
 			return new WP_REST_Response( null, 204 );

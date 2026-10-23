@@ -10,10 +10,16 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Generates and serves /llms.txt.
+ */
 final class Llms {
 
 	const CACHE_KEY = 'swai_llms_txt';
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'parse_request', array( __CLASS__, 'maybe_serve' ), 0 );
 		add_action( 'save_post', array( __CLASS__, 'flush' ) );
@@ -21,14 +27,23 @@ final class Llms {
 		add_action( 'update_option_' . Settings::OPTION, array( __CLASS__, 'flush' ) );
 	}
 
+	/**
+	 * Clear the cached value.
+	 */
 	public static function flush() {
 		delete_transient( self::CACHE_KEY );
 	}
 
+	/**
+	 * Whether a real llms.txt file exists in the site root.
+	 */
 	public static function physical_file_exists() {
 		return file_exists( ABSPATH . 'llms.txt' );
 	}
 
+	/**
+	 * Serve /llms.txt when it is requested.
+	 */
 	public static function maybe_serve() {
 		if ( ! Settings::get( 'llms' ) || empty( $_SERVER['REQUEST_URI'] ) ) {
 			return;
@@ -53,10 +68,18 @@ final class Llms {
 		exit;
 	}
 
+	/**
+	 * Collapse text to a single plain line.
+	 *
+	 * @param string $text Text to clean.
+	 */
 	private static function line( $text ) {
 		return trim( preg_replace( '/\s+/u', ' ', wp_strip_all_tags( html_entity_decode( (string) $text, ENT_QUOTES, 'UTF-8' ) ) ) );
 	}
 
+	/**
+	 * Build the llms.txt Markdown.
+	 */
 	public static function build() {
 		$s     = Settings::get();
 		$name  = self::line( get_bloginfo( 'name' ) );

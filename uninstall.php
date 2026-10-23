@@ -18,5 +18,5 @@ foreach ( array( 7, 30, 90 ) as $swai_days ) {
 wp_clear_scheduled_hook( 'swai_prune_stats' );
 
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}swai_stats" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.DirectDatabaseQuery.SchemaChange
-$wpdb->delete( $wpdb->postmeta, array( 'meta_key' => '_swai_disable' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-$wpdb->delete( $wpdb->postmeta, array( 'meta_key' => '_swai_prompt' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+$wpdb->delete( $wpdb->postmeta, array( 'meta_key' => '_swai_disable' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+$wpdb->delete( $wpdb->postmeta, array( 'meta_key' => '_swai_prompt' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching

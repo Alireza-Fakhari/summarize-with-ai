@@ -12,16 +12,25 @@ use SummarizeWithAI\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Per-post controls in the editor.
+ */
 final class MetaBox {
 
 	const NONCE = 'swai_meta';
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'init', array( __CLASS__, 'register_meta' ) );
 		add_action( 'add_meta_boxes', array( __CLASS__, 'add' ) );
-		add_action( 'save_post', array( __CLASS__, 'save' ), 10, 2 );
+		add_action( 'save_post', array( __CLASS__, 'save' ) );
 	}
 
+	/**
+	 * Register post meta for REST and the block editor.
+	 */
 	public static function register_meta() {
 		$auth = static function ( $allowed, $meta_key, $post_id ) {
 			return current_user_can( 'edit_post', $post_id );
@@ -49,12 +58,20 @@ final class MetaBox {
 		);
 	}
 
+	/**
+	 * Add the meta box to supported post types.
+	 */
 	public static function add() {
 		foreach ( (array) Settings::get( 'post_types' ) as $type ) {
 			add_meta_box( 'swai-meta', __( 'Summarize with AI', 'summarize-with-ai' ), array( __CLASS__, 'render' ), $type, 'side', 'low' );
 		}
 	}
 
+	/**
+	 * Output the meta box.
+	 *
+	 * @param \WP_Post $post Post being edited.
+	 */
 	public static function render( $post ) {
 		wp_nonce_field( self::NONCE, self::NONCE . '_nonce' );
 		?>
@@ -71,7 +88,12 @@ final class MetaBox {
 		<?php
 	}
 
-	public static function save( $post_id, $post ) {
+	/**
+	 * Save the meta box fields.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	public static function save( $post_id ) {
 		if ( ! isset( $_POST[ self::NONCE . '_nonce' ] ) || ! wp_verify_nonce( sanitize_key( $_POST[ self::NONCE . '_nonce' ] ), self::NONCE ) ) {
 			return;
 		}

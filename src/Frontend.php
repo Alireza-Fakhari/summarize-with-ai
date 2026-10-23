@@ -9,8 +9,14 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Front-end output: auto-insertion, shortcode, floating button, assets.
+ */
 final class Frontend {
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_assets' ) );
 		add_filter( 'the_content', array( __CLASS__, 'filter_content' ), 20 );
@@ -64,6 +70,8 @@ final class Frontend {
 
 	/**
 	 * Whether the box should be inserted automatically for a post.
+	 *
+	 * @param int $post_id Post ID.
 	 */
 	public static function should_auto_insert( $post_id ) {
 		$s = Settings::get();
@@ -75,6 +83,8 @@ final class Frontend {
 
 	/**
 	 * Post-level rules shared by auto-insertion and the floating button.
+	 *
+	 * @param int $post_id Post ID.
 	 */
 	public static function eligible( $post_id ) {
 		$s    = Settings::get();
@@ -103,16 +113,28 @@ final class Frontend {
 
 	/**
 	 * Unicode-aware word count (str_word_count() ignores non-Latin scripts).
+	 *
+	 * @param string $content Post content.
 	 */
 	private static function word_count( $content ) {
 		$text = trim( wp_strip_all_tags( strip_shortcodes( $content ) ) );
 		return '' === $text ? 0 : count( preg_split( '/\s+/u', $text ) );
 	}
 
+	/**
+	 * Whether a post is built with Elementor.
+	 *
+	 * @param int $post_id Post ID.
+	 */
 	public static function built_with_elementor( $post_id ) {
 		return 'builder' === get_post_meta( $post_id, '_elementor_edit_mode', true );
 	}
 
+	/**
+	 * Insert the box into post content.
+	 *
+	 * @param string $content Post content.
+	 */
 	public static function filter_content( $content ) {
 		if ( is_admin() || is_feed() || ! is_singular() || ! in_the_loop() || ! is_main_query() ) {
 			return $content;
@@ -135,6 +157,8 @@ final class Frontend {
 
 	/**
 	 * [summarize_with_ai services="chatgpt,claude" label="…" modes="summary,keypoints" mode="summary" template="pill" theme="dark"]
+	 *
+	 * @param array $atts Shortcode attributes.
 	 */
 	public static function shortcode( $atts ) {
 		$atts = shortcode_atts(

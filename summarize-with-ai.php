@@ -28,12 +28,12 @@ define( 'SWAI_URL', plugin_dir_url( __FILE__ ) );
  * Kept dependency-free so the plugin works without running Composer.
  */
 spl_autoload_register(
-	static function ( $class ) {
+	static function ( $class_name ) {
 		$prefix = 'SummarizeWithAI\\';
-		if ( 0 !== strpos( $class, $prefix ) ) {
+		if ( 0 !== strpos( $class_name, $prefix ) ) {
 			return;
 		}
-		$file = SWAI_DIR . 'src/' . str_replace( '\\', '/', substr( $class, strlen( $prefix ) ) ) . '.php';
+		$file = SWAI_DIR . 'src/' . str_replace( '\\', '/', substr( $class_name, strlen( $prefix ) ) ) . '.php';
 		if ( is_readable( $file ) ) {
 			require $file;
 		}

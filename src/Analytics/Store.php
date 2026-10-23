@@ -15,12 +15,18 @@ use SummarizeWithAI\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Aggregated, privacy-first analytics storage.
+ */
 final class Store {
 
 	const DB_VERSION     = '1';
 	const DB_VERSION_KEY = 'swai_db_version';
 	const PRUNE_HOOK     = 'swai_prune_stats';
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'admin_init', array( __CLASS__, 'maybe_upgrade' ) );
 		add_action( self::PRUNE_HOOK, array( __CLASS__, 'prune' ) );
@@ -29,11 +35,17 @@ final class Store {
 		}
 	}
 
+	/**
+	 * Full name of the analytics table.
+	 */
 	public static function table() {
 		global $wpdb;
 		return $wpdb->prefix . 'swai_stats';
 	}
 
+	/**
+	 * Create or upgrade the analytics table.
+	 */
 	public static function install() {
 		global $wpdb;
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
@@ -56,6 +68,9 @@ final class Store {
 		update_option( self::DB_VERSION_KEY, self::DB_VERSION, false );
 	}
 
+	/**
+	 * Run the table migration when the schema version changed.
+	 */
 	public static function maybe_upgrade() {
 		if ( get_option( self::DB_VERSION_KEY ) !== self::DB_VERSION ) {
 			self::install();
@@ -64,6 +79,12 @@ final class Store {
 
 	/**
 	 * Record one event (upsert).
+	 *
+	 * @param string $event Event type: click or view.
+	 * @param int    $post_id Post ID.
+	 * @param string $service Service ID.
+	 * @param string $mode Mode ID.
+	 * @param string $device mobile or desktop.
 	 */
 	public static function record( $event, $post_id, $service, $mode, $device ) {
 		global $wpdb;
@@ -93,6 +114,9 @@ final class Store {
 		$wpdb->query( $wpdb->prepare( "DELETE FROM {$table} WHERE day < %s", gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . " -{$days} days" ) ) ) );
 	}
 
+	/**
+	 * Delete all analytics rows.
+	 */
 	public static function reset() {
 		global $wpdb;
 		$table = self::table();
@@ -139,7 +163,8 @@ final class Store {
 
 		// Fill every day so charts have no gaps.
 		$series = array();
-		for ( $t = strtotime( $pfrom ); $t <= strtotime( $today ); $t += DAY_IN_SECONDS ) {
+		$end    = strtotime( $today );
+		for ( $t = strtotime( $pfrom ); $t <= $end; $t += DAY_IN_SECONDS ) {
 			$series[ gmdate( 'Y-m-d', $t ) ] = array(
 				'click' => 0,
 				'view'  => 0,
@@ -202,6 +227,8 @@ final class Store {
 
 	/**
 	 * Raw aggregated rows for CSV export.
+	 *
+	 * @param int $days Range length in days.
 	 */
 	public static function export_rows( $days ) {
 		global $wpdb;

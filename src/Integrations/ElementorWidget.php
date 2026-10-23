@@ -19,36 +19,63 @@ use SummarizeWithAI\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Elementor widget for the AI buttons.
+ */
 class ElementorWidget extends Widget_Base {
 
+	/**
+	 * Widget machine name.
+	 */
 	public function get_name() {
 		return 'swai_summarize';
 	}
 
+	/**
+	 * Widget title.
+	 */
 	public function get_title() {
 		return __( 'Summarize with AI', 'summarize-with-ai' );
 	}
 
+	/**
+	 * Widget icon.
+	 */
 	public function get_icon() {
 		return 'eicon-ai';
 	}
 
+	/**
+	 * Widget categories.
+	 */
 	public function get_categories() {
 		return array( 'general' );
 	}
 
+	/**
+	 * Search keywords.
+	 */
 	public function get_keywords() {
 		return array( 'ai', 'chatgpt', 'perplexity', 'claude', 'summary', 'خلاصه' );
 	}
 
+	/**
+	 * Style handles the widget needs.
+	 */
 	public function get_style_depends() {
 		return array( 'swai' );
 	}
 
+	/**
+	 * Script handles the widget needs.
+	 */
 	public function get_script_depends() {
 		return array( 'swai' );
 	}
 
+	/**
+	 * Register widget controls.
+	 */
 	protected function register_controls() {
 		$s        = Settings::get();
 		$services = array();
@@ -314,6 +341,9 @@ class ElementorWidget extends Widget_Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Render the widget on the front end.
+	 */
 	protected function render() {
 		$st   = $this->get_settings_for_display();
 		$args = array(

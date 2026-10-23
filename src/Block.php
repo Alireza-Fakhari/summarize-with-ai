@@ -9,12 +9,21 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Registers the Summarize with AI block.
+ */
 final class Block {
 
+	/**
+	 * Hook the component into WordPress.
+	 */
 	public static function register() {
 		add_action( 'init', array( __CLASS__, 'register_block' ) );
 	}
 
+	/**
+	 * Register the block type and pass editor data.
+	 */
 	public static function register_block() {
 		register_block_type( SWAI_DIR . 'blocks/summarize' );
 

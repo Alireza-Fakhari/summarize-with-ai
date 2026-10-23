@@ -15,6 +15,9 @@ use SummarizeWithAI\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Settings screen with live preview.
+ */
 final class SettingsPage {
 
 	/**
@@ -24,6 +27,9 @@ final class SettingsPage {
 	 */
 	private static $s = array();
 
+	/**
+	 * Settings sections: id => [ title, icon ].
+	 */
 	private static function sections() {
 		return array(
 			'general'   => array( __( 'General', 'summarize-with-ai' ), 'setting-2' ),
@@ -37,6 +43,9 @@ final class SettingsPage {
 		);
 	}
 
+	/**
+	 * Output the settings screen.
+	 */
 	public static function render() {
 		if ( ! current_user_can( Admin::CAP ) ) {
 			return;
@@ -89,7 +98,7 @@ final class SettingsPage {
 							<span class="swai-skeleton" style="width:46%"></span>
 							<div id="swai-preview-box">
 								<?php
-								echo Renderer::render( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in Renderer.
+								$preview = Renderer::render(
 									array(
 										'post_id'     => 0,
 										'context'     => 'preview',
@@ -98,6 +107,7 @@ final class SettingsPage {
 										'copy_button' => true,
 									)
 								);
+								echo $preview; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in Renderer.
 								?>
 							</div>
 							<span class="swai-skeleton"></span>
@@ -112,6 +122,9 @@ final class SettingsPage {
 		<?php
 	}
 
+	/**
+	 * Output status banners after redirects.
+	 */
 	private static function notices() {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Display-only flags set by our own redirects.
 		$map = array(
@@ -135,14 +148,23 @@ final class SettingsPage {
 		// phpcs:enable
 	}
 
-	/* ---------------------------------------------------------------------
-	 * Field helpers. All names are swai_settings[...].
-	 * ------------------------------------------------------------------- */
+	// Field helpers. All names are swai_settings[...].
 
+	/**
+	 * Form field name for a settings key.
+	 *
+	 * @param string $key Setting or icon key.
+	 */
 	private static function name( $key ) {
 		return Settings::OPTION . $key;
 	}
 
+	/**
+	 * Open a settings section.
+	 *
+	 * @param string $id Section ID.
+	 * @param string $desc Section description.
+	 */
 	private static function open( $id, $desc ) {
 		$sec = self::sections()[ $id ];
 		?>
@@ -157,10 +179,20 @@ final class SettingsPage {
 		<?php
 	}
 
+	/**
+	 * Close a settings section.
+	 */
 	private static function close() {
 		echo '</section>';
 	}
 
+	/**
+	 * Output one labeled field row.
+	 *
+	 * @param string $label Field label.
+	 * @param string $desc Help text (may contain <code>).
+	 * @param string $control Control markup.
+	 */
 	private static function row( $label, $desc, $control ) {
 		?>
 		<div class="swai-field">
@@ -175,6 +207,14 @@ final class SettingsPage {
 		<?php
 	}
 
+	/**
+	 * Output a switch field.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param string $label Field label.
+	 * @param string $desc Help text (may contain <code>).
+	 * @param string $extra Extra HTML attributes.
+	 */
 	private static function toggle( $key, $label, $desc = '', $extra = '' ) {
 		$control = sprintf(
 			'<label class="swai-switch"><input type="checkbox" name="%1$s" value="1" %2$s data-preview="%3$s"%5$s><span class="swai-switch__track" aria-hidden="true"></span><span class="screen-reader-text">%4$s</span></label>',
@@ -187,6 +227,15 @@ final class SettingsPage {
 		self::row( $label, $desc, $control );
 	}
 
+	/**
+	 * Output a text-like input field.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param string $label Field label.
+	 * @param string $desc Help text (may contain <code>).
+	 * @param string $type Input type.
+	 * @param string $attrs Extra HTML attributes.
+	 */
 	private static function text( $key, $label, $desc = '', $type = 'text', $attrs = '' ) {
 		$control = sprintf(
 			'<input class="swai-input" type="%1$s" name="%2$s" value="%3$s" data-preview="%4$s" %5$s>',
@@ -199,6 +248,13 @@ final class SettingsPage {
 		self::row( $label, $desc, $control );
 	}
 
+	/**
+	 * Output a select field.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param string $label Field label.
+	 * @param string $desc Help text (may contain <code>).
+	 */
 	private static function select( $key, $label, $desc = '' ) {
 		$opts = '';
 		foreach ( Settings::choices( $key ) as $value => $text ) {
@@ -207,6 +263,13 @@ final class SettingsPage {
 		self::row( $label, $desc, sprintf( '<select class="swai-input" name="%1$s" data-preview="%2$s">%3$s</select>', esc_attr( self::name( '[' . $key . ']' ) ), esc_attr( $key ), $opts ) );
 	}
 
+	/**
+	 * Output a segmented radio field.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param string $label Field label.
+	 * @param string $desc Help text (may contain <code>).
+	 */
 	private static function segmented( $key, $label, $desc = '' ) {
 		$html = '<div class="swai-segmented swai-segmented--input">';
 		foreach ( Settings::choices( $key ) as $value => $text ) {
@@ -222,6 +285,12 @@ final class SettingsPage {
 		self::row( $label, $desc, $html . '</div>' );
 	}
 
+	/**
+	 * Color input markup.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param string $label Field label.
+	 */
 	private static function color( $key, $label ) {
 		return sprintf(
 			'<label class="swai-color"><input type="color" name="%1$s" value="%2$s" data-preview="%3$s"><span>%4$s</span><code>%2$s</code></label>',
@@ -232,6 +301,12 @@ final class SettingsPage {
 		);
 	}
 
+	/**
+	 * Checkbox pill list markup.
+	 *
+	 * @param string $key Setting or icon key.
+	 * @param array  $options value => label.
+	 */
 	private static function checklist( $key, $options ) {
 		$html = '<div class="swai-checks">';
 		foreach ( $options as $value => $text ) {
@@ -246,6 +321,9 @@ final class SettingsPage {
 		return $html . '</div>';
 	}
 
+	/**
+	 * Public post types: name => label.
+	 */
 	private static function public_post_types() {
 		$out = array();
 		foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $pt ) {
@@ -256,10 +334,11 @@ final class SettingsPage {
 		return $out;
 	}
 
-	/* ---------------------------------------------------------------------
-	 * Sections.
-	 * ------------------------------------------------------------------- */
+	// Sections.
 
+	/**
+	 * General section.
+	 */
 	private static function section_general() {
 		$s = self::$s;
 		self::open( 'general', __( 'The label and icon shown next to the buttons.', 'summarize-with-ai' ) );
@@ -310,6 +389,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * AI assistants section.
+	 */
 	private static function section_services() {
 		$s = self::$s;
 		self::open( 'services', __( 'Choose, rename and drag to reorder the assistants.', 'summarize-with-ai' ) );
@@ -362,6 +444,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Prompts and modes section.
+	 */
 	private static function section_prompts() {
 		$s = self::$s;
 		self::open( 'prompts', __( 'Modes let readers pick what the AI should do with the page.', 'summarize-with-ai' ) );
@@ -398,6 +483,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Design section.
+	 */
 	private static function section_design() {
 		$s = self::$s;
 		self::open( 'design', __( 'Make the buttons match your theme.', 'summarize-with-ai' ) );
@@ -436,6 +524,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Placement section.
+	 */
 	private static function section_placement() {
 		self::open( 'placement', __( 'Where the buttons appear automatically.', 'summarize-with-ai' ) );
 		self::select( 'position', __( 'Position', 'summarize-with-ai' ), __( 'Use the shortcode <code>[summarize_with_ai]</code>, the block or the Elementor widget for manual placement.', 'summarize-with-ai' ) );
@@ -453,6 +544,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Floating button section.
+	 */
 	private static function section_floating() {
 		self::open( 'floating', __( 'A floating button that follows readers as they scroll.', 'summarize-with-ai' ) );
 		self::toggle( 'floating', __( 'Enable floating button', 'summarize-with-ai' ) );
@@ -462,6 +556,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Analytics and SEO section.
+	 */
 	private static function section_analytics() {
 		self::open( 'analytics', __( 'Measure usage and help AI assistants understand your site.', 'summarize-with-ai' ) );
 		self::toggle( 'analytics', __( 'Click analytics', 'summarize-with-ai' ), __( 'Anonymous daily totals. No cookies, no IPs, no personal data.', 'summarize-with-ai' ) );
@@ -488,6 +585,9 @@ final class SettingsPage {
 		self::close();
 	}
 
+	/**
+	 * Tools section (separate forms).
+	 */
 	private static function section_tools() {
 		$export = wp_json_encode( Settings::get(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
 		self::open( 'tools', __( 'Back up, move or reset your configuration.', 'summarize-with-ai' ) );

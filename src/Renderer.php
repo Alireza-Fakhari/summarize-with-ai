@@ -9,6 +9,9 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Builds the AI buttons markup.
+ */
 final class Renderer {
 
 	/**
@@ -74,18 +77,20 @@ final class Renderer {
 			$modes[ $mode ]['prompt'] = $custom;
 		}
 
-		$ctx = self::context( $post_id, false !== strpos( implode( ' ', wp_list_pluck( $modes, 'prompt' ) ), '{excerpt}' ) );
+		$prompts      = implode( ' ', wp_list_pluck( $modes, 'prompt' ) );
+		$with_excerpt = false !== strpos( $prompts, '{excerpt}' );
+		$ctx          = self::context( $post_id, $with_excerpt );
 
 		self::enqueue();
 
-		$template = array_key_exists( $args['template'], Settings::choices( 'template' ) ) ? $args['template'] : 'outline';
-		$theme    = array_key_exists( $args['theme'], Settings::choices( 'theme' ) ) ? $args['theme'] : 'light';
-		$justify  = array(
+		$template        = array_key_exists( $args['template'], Settings::choices( 'template' ) ) ? $args['template'] : 'outline';
+		$theme           = array_key_exists( $args['theme'], Settings::choices( 'theme' ) ) ? $args['theme'] : 'light';
+		$justify         = array(
 			'start'  => 'flex-start',
 			'center' => 'center',
 			'end'    => 'flex-end',
 		);
-		$vars     = sprintf(
+		$vars            = sprintf(
 			'--swai-bg:%s;--swai-text:%s;--swai-border:%s;--swai-hover:%s;--swai-accent:%s;--swai-radius:%dpx;--swai-justify:%s',
 			$s['bg'],
 			$s['text'],
@@ -95,7 +100,7 @@ final class Renderer {
 			$s['radius'],
 			isset( $justify[ $s['align'] ] ) ? $justify[ $s['align'] ] : 'flex-start'
 		);
-		$classes  = array(
+		$classes         = array(
 			'swai',
 			'swai--' . $template,
 			'swai--' . $theme,
@@ -103,13 +108,13 @@ final class Renderer {
 			$s['brand_colors'] ? 'swai--brand' : '',
 			$args['class'],
 		);
-		$data     = array(
+		$data            = array(
 			'post'  => $post_id,
 			'ctx'   => $ctx,
 			'mode'  => $mode,
 			'modes' => wp_list_pluck( $modes, 'prompt' ),
 		);
-		$target   = $args['new_tab'] ? ' target="_blank" rel="noopener noreferrer nofollow"' : ' rel="nofollow"';
+		$target          = $args['new_tab'] ? ' target="_blank" rel="noopener noreferrer nofollow"' : ' rel="nofollow"';
 		$template_prompt = $modes[ $mode ]['prompt'];
 		$show_icons      = $args['show_icons'] || 'icons' === $template;
 
@@ -192,6 +197,10 @@ final class Renderer {
 
 	/**
 	 * Fill a prompt template. Must stay in sync with buildPrompt() in assets/js/frontend.js.
+	 *
+	 * @param string $template Prompt template.
+	 * @param array  $ctx Prompt context (url, title, site, excerpt).
+	 * @param string $service Service ID.
 	 */
 	public static function build_prompt( $template, $ctx, $service ) {
 		$url    = self::tracked_url( $ctx['url'], $service );
@@ -212,6 +221,9 @@ final class Renderer {
 
 	/**
 	 * Add UTM tags so visits referred by AI assistants are attributable.
+	 *
+	 * @param string $url Page URL.
+	 * @param string $service Service ID.
 	 */
 	public static function tracked_url( $url, $service ) {
 		if ( ! Settings::get( 'utm' ) || '' === $url ) {
@@ -221,10 +233,21 @@ final class Renderer {
 		return $url . $sep . 'utm_source=' . rawurlencode( Settings::get( 'utm_source' ) ) . '&utm_medium=' . rawurlencode( $service );
 	}
 
+	/**
+	 * Link that opens an assistant with the prompt.
+	 *
+	 * @param array  $svc Service definition.
+	 * @param string $prompt Filled prompt.
+	 */
 	public static function service_href( $svc, $prompt ) {
 		return $svc['copy'] ? $svc['url'] : str_replace( '{q}', rawurlencode( $prompt ), $svc['url'] );
 	}
 
+	/**
+	 * Icon markup shown before the label.
+	 *
+	 * @param array $s Settings.
+	 */
 	public static function label_icon( $s ) {
 		if ( 'none' === $s['label_icon'] ) {
 			return '';
@@ -238,6 +261,11 @@ final class Renderer {
 		return '<span class="swai__icon swai__label-icon" aria-hidden="true"' . $style . '>' . $icon['svg'] . '</span>';
 	}
 
+	/**
+	 * Icon markup for an assistant button.
+	 *
+	 * @param array $svc Service definition.
+	 */
 	public static function service_icon( $svc ) {
 		if ( ! empty( $svc['icon_url'] ) ) {
 			return '<img class="swai__icon" src="' . esc_url( $svc['icon_url'] ) . '" alt="" width="18" height="18" loading="lazy" decoding="async">';

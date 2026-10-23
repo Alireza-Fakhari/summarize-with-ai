@@ -9,6 +9,9 @@ namespace SummarizeWithAI;
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Catalog of AI assistants and prompt modes.
+ */
 final class Services {
 
 	/**
@@ -84,6 +87,9 @@ final class Services {
 		return $ordered + $all;
 	}
 
+	/**
+	 * Default prompt modes.
+	 */
 	public static function default_modes() {
 		return array(
 			'summary'   => array(
