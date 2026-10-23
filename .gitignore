@@ -1,0 +1,6 @@
+/vendor/
+/node_modules/
+composer.lock
+*.zip
+.DS_Store
+Thumbs.db

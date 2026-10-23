@@ -1,0 +1,16 @@
+/.git
+/.github
+/vendor
+/node_modules
+/docs
+.distignore
+.editorconfig
+.gitattributes
+.gitignore
+composer.json
+composer.lock
+phpcs.xml.dist
+CONTRIBUTING.md
+SECURITY.md
+CHANGELOG.md
+README.fa.md

@@ -1,0 +1,27 @@
+{
+	"name": "alireza-fakhari/summarize-with-ai",
+	"description": "Let readers summarize any WordPress post with ChatGPT, Perplexity, Claude, Gemini and more.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{ "name": "Alireza Fakhari" }
+	],
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"autoload": {
+		"psr-4": { "SummarizeWithAI\\": "src/" }
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"lint:fix": "phpcbf"
+	},
+	"config": {
+		"allow-plugins": { "dealerdirect/phpcodesniffer-composer-installer": true }
+	}
+}

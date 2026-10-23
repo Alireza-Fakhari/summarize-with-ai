@@ -1,0 +1,706 @@
+msgid ""
+msgstr "Project-Id-Version: Summarize with AI 1.0.0\nReport-Msgid-Bugs-To: https://github.com/Alireza-Fakhari/summarize-with-ai/issues\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nX-Domain: summarize-with-ai\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Summarize with AI"
+msgstr ""
+
+msgid "Summarize AI"
+msgstr ""
+
+msgid "Analytics"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Summarize with AI — last 7 days"
+msgstr ""
+
+msgid "AI clicks"
+msgstr ""
+
+#, php-format
+msgid "Top AI: %s"
+msgstr ""
+
+msgid "Open analytics →"
+msgstr ""
+
+msgid "Copy prompt"
+msgstr ""
+
+msgid "Plugin sections"
+msgstr ""
+
+msgid "Star on GitHub"
+msgstr ""
+
+msgid "Clicks"
+msgstr ""
+
+msgid "Previous period"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Summarize with AI — Analytics"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+#, php-format
+msgid "%1$s – %2$s · compared with the previous period"
+msgstr ""
+
+msgid "Date range"
+msgstr ""
+
+msgid "Export CSV"
+msgstr ""
+
+msgid "Analytics is turned off, so no new clicks are being recorded."
+msgstr ""
+
+msgid "Turn it on"
+msgstr ""
+
+msgid "Box impressions"
+msgstr ""
+
+msgid "Click-through rate"
+msgstr ""
+
+msgid "Top AI assistant"
+msgstr ""
+
+#, php-format
+msgid "%d%% of clicks"
+msgstr ""
+
+msgid "No data yet"
+msgstr ""
+
+msgid "Charts appear as soon as readers start clicking the AI buttons. Open a post to see them in action."
+msgstr ""
+
+msgid "View a post"
+msgstr ""
+
+msgid "Clicks over time"
+msgstr ""
+
+msgid "Daily clicks on AI buttons"
+msgstr ""
+
+msgid "This period"
+msgstr ""
+
+msgid "Line chart of daily clicks"
+msgstr ""
+
+msgid "By AI assistant"
+msgstr ""
+
+msgid "Where readers send your content"
+msgstr ""
+
+msgid "Prompt modes"
+msgstr ""
+
+msgid "What readers ask the AI to do"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Clicks by screen size"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Insights"
+msgstr ""
+
+msgid "Top posts"
+msgstr ""
+
+msgid "Content readers most often take to an AI"
+msgstr ""
+
+msgid "Post"
+msgstr ""
+
+msgid "Impressions"
+msgstr ""
+
+msgid "CTR"
+msgstr ""
+
+msgid "Share"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Privacy-first: no cookies, no IP addresses, no personal data. Only anonymous daily totals are stored."
+msgstr ""
+
+msgid "vs previous"
+msgstr ""
+
+msgid "Turn on impression tracking to see impressions and CTR."
+msgstr ""
+
+msgid "Enable impressions →"
+msgstr ""
+
+#, php-format
+msgid "AI clicks are up %s compared with the previous period."
+msgstr ""
+
+#, php-format
+msgid "AI clicks are down %s compared with the previous period."
+msgstr ""
+
+#, php-format
+msgid "%1$s is your readers’ favorite assistant with %2$s of clicks."
+msgstr ""
+
+msgid "Most clicks come from <strong>mobile</strong>. Try the floating button for easy thumb access."
+msgstr ""
+
+#, php-format
+msgid "Your busiest day was %s."
+msgstr ""
+
+#, php-format
+msgid "“%s” is the post readers summarize most."
+msgstr ""
+
+msgid "Hide AI buttons on this post"
+msgstr ""
+
+msgid "Custom prompt (optional)"
+msgstr ""
+
+msgid "Overrides the default mode for this post. Supports {url} and {title}."
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "AI assistants"
+msgstr ""
+
+msgid "Prompts & modes"
+msgstr ""
+
+msgid "Design"
+msgstr ""
+
+msgid "Placement"
+msgstr ""
+
+msgid "Floating button"
+msgstr ""
+
+msgid "Analytics & SEO"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Summarize with AI — Settings"
+msgstr ""
+
+msgid "Settings sections"
+msgstr ""
+
+msgid "You have unsaved changes"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Live preview"
+msgstr ""
+
+msgid "Updates as you edit. Save to apply on your site."
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Settings imported."
+msgstr ""
+
+msgid "Settings restored to defaults."
+msgstr ""
+
+msgid "Analytics data deleted."
+msgstr ""
+
+msgid "That file could not be imported. Please choose a valid export."
+msgstr ""
+
+msgid "The label and icon shown next to the buttons."
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Leave empty to hide the label."
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Media library"
+msgstr ""
+
+msgid "Label icon"
+msgstr ""
+
+msgid "Color applies to the built-in icons; uploaded icons keep their own colors."
+msgstr ""
+
+msgid "Icon color & size"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Copy prompt button"
+msgstr ""
+
+msgid "Lets readers copy the prompt to use in any AI app."
+msgstr ""
+
+msgid "Open in a new tab"
+msgstr ""
+
+msgid "Choose, rename and drag to reorder the assistants."
+msgstr ""
+
+msgid "Display name"
+msgstr ""
+
+msgid "This assistant has no prompt link, so the prompt is copied and the visitor pastes it."
+msgstr ""
+
+msgid "copy & paste"
+msgstr ""
+
+msgid "custom"
+msgstr ""
+
+#, php-format
+msgid "Show %s"
+msgstr ""
+
+msgid "Custom assistants"
+msgstr ""
+
+msgid "One per line: <code>id|Name|https://example.com/?q={q}|icon-url</code>. Without <code>{q}</code> the prompt is copied instead."
+msgstr ""
+
+msgid "Modes let readers pick what the AI should do with the page."
+msgstr ""
+
+msgid "Show mode switcher"
+msgstr ""
+
+msgid "When off, only the default mode is used."
+msgstr ""
+
+msgid "Default mode"
+msgstr ""
+
+msgid "Variables:"
+msgstr ""
+
+msgid "Mode name"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "Make the buttons match your theme."
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Color scheme"
+msgstr ""
+
+msgid "Alignment"
+msgstr ""
+
+msgid "Show assistant icons"
+msgstr ""
+
+msgid "Brand-colored icons"
+msgstr ""
+
+msgid "Tint each icon with the assistant’s brand color."
+msgstr ""
+
+msgid "Colors"
+msgstr ""
+
+msgid "Used by the light scheme; dark uses its own palette."
+msgstr ""
+
+msgid "Accent"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Border"
+msgstr ""
+
+msgid "Hover border"
+msgstr ""
+
+msgid "Corner radius"
+msgstr ""
+
+msgid "Where the buttons appear automatically."
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Use the shortcode <code>[summarize_with_ai]</code>, the block or the Elementor widget for manual placement."
+msgstr ""
+
+msgid "Post types"
+msgstr ""
+
+msgid "Minimum words"
+msgstr ""
+
+msgid "Skip short posts. 0 shows on every post."
+msgstr ""
+
+msgid "Exclude categories"
+msgstr ""
+
+msgid "Skip Elementor pages"
+msgstr ""
+
+msgid "Don’t auto-insert on pages built with Elementor; place the widget there instead."
+msgstr ""
+
+msgid "A floating button that follows readers as they scroll."
+msgstr ""
+
+msgid "Enable floating button"
+msgstr ""
+
+msgid "Button text"
+msgstr ""
+
+msgid "Hidden on small screens, where only the icon shows."
+msgstr ""
+
+msgid "Side"
+msgstr ""
+
+msgid "Show on"
+msgstr ""
+
+msgid "Measure usage and help AI assistants understand your site."
+msgstr ""
+
+msgid "Click analytics"
+msgstr ""
+
+msgid "Anonymous daily totals. No cookies, no IPs, no personal data."
+msgstr ""
+
+msgid "Track impressions"
+msgstr ""
+
+msgid "Needed for CTR. Adds one tiny background request per page view."
+msgstr ""
+
+msgid "Keep data for (days)"
+msgstr ""
+
+msgid "UTM tags"
+msgstr ""
+
+msgid "Adds <code>utm_source</code> and <code>utm_medium</code> to the shared link so AI-referred visits show up in Google Analytics."
+msgstr ""
+
+msgid "UTM source"
+msgstr ""
+
+msgid "Serve /llms.txt"
+msgstr ""
+
+#, php-format
+msgid "A Markdown index of your best content for AI crawlers, at <code>%s</code>."
+msgstr ""
+
+msgid "Posts listed in llms.txt"
+msgstr ""
+
+msgid "llms.txt content"
+msgstr ""
+
+msgid "A physical llms.txt file exists in your site root and will be served instead of the generated one."
+msgstr ""
+
+msgid "Back up, move or reset your configuration."
+msgstr ""
+
+msgid "Export settings"
+msgstr ""
+
+msgid "Download a JSON file to copy this setup to another site."
+msgstr ""
+
+msgid "Download JSON"
+msgstr ""
+
+msgid "Import settings"
+msgstr ""
+
+msgid "Replace the current settings with an exported file."
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Restore all settings to their defaults?"
+msgstr ""
+
+msgid "Reset settings"
+msgstr ""
+
+msgid "Go back to the default configuration. Analytics are kept."
+msgstr ""
+
+msgid "Permanently delete all analytics data?"
+msgstr ""
+
+msgid "Delete analytics"
+msgstr ""
+
+msgid "Remove all recorded clicks and impressions."
+msgstr ""
+
+msgid "Delete data"
+msgstr ""
+
+msgid "Developer usage"
+msgstr ""
+
+msgid "You are not allowed to do that."
+msgstr ""
+
+#, php-format
+msgid "Prompt copied. Paste it in %s."
+msgstr ""
+
+msgid "Prompt copied to clipboard."
+msgstr ""
+
+msgid "Could not copy. Please copy the prompt manually."
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Stars (solid)"
+msgstr ""
+
+msgid "Stars (duotone)"
+msgstr ""
+
+msgid "Stars (line)"
+msgstr ""
+
+msgid "Magic wand"
+msgstr ""
+
+msgid "Sparkle"
+msgstr ""
+
+msgid "Default (from settings)"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Custom prompt"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "Text color"
+msgstr ""
+
+msgid "Icon color"
+msgstr ""
+
+msgid "Icon size"
+msgstr ""
+
+msgid "Buttons"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Hover"
+msgstr ""
+
+msgid "Border color"
+msgstr ""
+
+msgid "Padding"
+msgstr ""
+
+msgid "Spacing"
+msgstr ""
+
+msgid "Pick at least one AI assistant."
+msgstr ""
+
+msgid "What should the AI do?"
+msgstr ""
+
+#, php-format
+msgid "Copy the prompt and open %s"
+msgstr ""
+
+#, php-format
+msgid "Open in %s"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Read this page and give me a short, well-structured summary of its content. {url}"
+msgstr ""
+
+msgid "Key points"
+msgstr ""
+
+msgid "Read this page and list its key takeaways as short bullet points. {url}"
+msgstr ""
+
+msgid "Explain simply"
+msgstr ""
+
+msgid "Read this page and explain it in simple words, as if I were a complete beginner. {url}"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Read this page and translate its main content into English. {url}"
+msgstr ""
+
+msgid "Ask questions"
+msgstr ""
+
+msgid "Read this page. Give me a two-line overview, then wait for my questions about it. {url}"
+msgstr ""
+
+msgid "Summarize with:"
+msgstr ""
+
+msgid "Before content"
+msgstr ""
+
+msgid "After content"
+msgstr ""
+
+msgid "Before and after"
+msgstr ""
+
+msgid "Manual only (shortcode, block, Elementor)"
+msgstr ""
+
+msgid "Outline"
+msgstr ""
+
+msgid "Filled"
+msgstr ""
+
+msgid "Pill"
+msgstr ""
+
+msgid "Minimal"
+msgstr ""
+
+msgid "Icons only"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Match visitor system"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "All devices"
+msgstr ""
+
+msgid "Mobile only"
+msgstr ""
+
+msgid "Desktop only"
+msgstr ""
+
+msgid "Leave empty to use the label from settings."
+msgstr ""
+
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+

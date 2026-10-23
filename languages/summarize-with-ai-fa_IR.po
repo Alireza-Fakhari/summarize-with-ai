@@ -1,0 +1,705 @@
+msgid ""
+msgstr "Project-Id-Version: Summarize with AI 1.0.0\nReport-Msgid-Bugs-To: https://github.com/Alireza-Fakhari/summarize-with-ai/issues\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nX-Domain: summarize-with-ai\nLanguage: fa_IR\nPlural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Summarize with AI"
+msgstr "خلاصه با هوش مصنوعی"
+
+msgid "Summarize AI"
+msgstr "خلاصه با AI"
+
+msgid "Analytics"
+msgstr "آمار"
+
+msgid "Settings"
+msgstr "تنظیمات"
+
+msgid "Summarize with AI — last 7 days"
+msgstr "خلاصه با هوش مصنوعی — ۷ روز اخیر"
+
+msgid "AI clicks"
+msgstr "کلیک‌های AI"
+
+#, php-format
+msgid "Top AI: %s"
+msgstr "محبوب‌ترین AI: %s"
+
+msgid "Open analytics →"
+msgstr "مشاهده آمار ←"
+
+msgid "Copy prompt"
+msgstr "کپی پرامپت"
+
+msgid "Plugin sections"
+msgstr "بخش‌های افزونه"
+
+msgid "Star on GitHub"
+msgstr "ستاره در گیت‌هاب"
+
+msgid "Clicks"
+msgstr "کلیک‌ها"
+
+msgid "Previous period"
+msgstr "دوره قبل"
+
+msgid "Total"
+msgstr "مجموع"
+
+msgid "Default"
+msgstr "پیش‌فرض"
+
+msgid "Summarize with AI — Analytics"
+msgstr "خلاصه با هوش مصنوعی — آمار"
+
+msgid "Overview"
+msgstr "نمای کلی"
+
+#, php-format
+msgid "%1$s – %2$s · compared with the previous period"
+msgstr "%1$s تا %2$s · در مقایسه با دوره قبل"
+
+msgid "Date range"
+msgstr "بازه زمانی"
+
+msgid "Export CSV"
+msgstr "خروجی CSV"
+
+msgid "Analytics is turned off, so no new clicks are being recorded."
+msgstr "آمار خاموش است و کلیک جدیدی ثبت نمی‌شود."
+
+msgid "Turn it on"
+msgstr "روشن کردن"
+
+msgid "Box impressions"
+msgstr "نمایش باکس"
+
+msgid "Click-through rate"
+msgstr "نرخ کلیک (CTR)"
+
+msgid "Top AI assistant"
+msgstr "محبوب‌ترین دستیار"
+
+#, php-format
+msgid "%d%% of clicks"
+msgstr "%d%% از کلیک‌ها"
+
+msgid "No data yet"
+msgstr "هنوز داده‌ای نیست"
+
+msgid "Charts appear as soon as readers start clicking the AI buttons. Open a post to see them in action."
+msgstr "به‌محض اینکه خواننده‌ها روی دکمه‌ها کلیک کنند، نمودارها اینجا نمایش داده می‌شوند. یک نوشته را باز کنید تا دکمه‌ها را ببینید."
+
+msgid "View a post"
+msgstr "مشاهده یک نوشته"
+
+msgid "Clicks over time"
+msgstr "کلیک‌ها در طول زمان"
+
+msgid "Daily clicks on AI buttons"
+msgstr "کلیک روزانه روی دکمه‌های AI"
+
+msgid "This period"
+msgstr "این دوره"
+
+msgid "Line chart of daily clicks"
+msgstr "نمودار خطی کلیک‌های روزانه"
+
+msgid "By AI assistant"
+msgstr "به تفکیک دستیار"
+
+msgid "Where readers send your content"
+msgstr "خواننده‌ها محتوای شما را کجا می‌برند"
+
+msgid "Prompt modes"
+msgstr "حالت‌های پرامپت"
+
+msgid "What readers ask the AI to do"
+msgstr "خواننده‌ها از AI چه می‌خواهند"
+
+msgid "Devices"
+msgstr "دستگاه‌ها"
+
+msgid "Clicks by screen size"
+msgstr "کلیک بر اساس اندازه صفحه"
+
+msgid "Mobile"
+msgstr "موبایل"
+
+msgid "Desktop"
+msgstr "دسکتاپ"
+
+msgid "Insights"
+msgstr "بینش‌ها"
+
+msgid "Top posts"
+msgstr "نوشته‌های برتر"
+
+msgid "Content readers most often take to an AI"
+msgstr "محتوایی که خواننده‌ها بیشتر به AI می‌برند"
+
+msgid "Post"
+msgstr "نوشته"
+
+msgid "Impressions"
+msgstr "نمایش"
+
+msgid "CTR"
+msgstr "CTR"
+
+msgid "Share"
+msgstr "سهم"
+
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "Privacy-first: no cookies, no IP addresses, no personal data. Only anonymous daily totals are stored."
+msgstr "حریم خصوصی اول: بدون کوکی، بدون IP و بدون داده شخصی. فقط مجموع‌های روزانه ناشناس ذخیره می‌شود."
+
+msgid "vs previous"
+msgstr "نسبت به قبل"
+
+msgid "Turn on impression tracking to see impressions and CTR."
+msgstr "برای دیدن تعداد نمایش و CTR، ثبت نمایش را روشن کنید."
+
+msgid "Enable impressions →"
+msgstr "فعال‌سازی ثبت نمایش ←"
+
+#, php-format
+msgid "AI clicks are up %s compared with the previous period."
+msgstr "کلیک‌های AI نسبت به دوره قبل %s افزایش داشته است."
+
+#, php-format
+msgid "AI clicks are down %s compared with the previous period."
+msgstr "کلیک‌های AI نسبت به دوره قبل %s کاهش داشته است."
+
+#, php-format
+msgid "%1$s is your readers’ favorite assistant with %2$s of clicks."
+msgstr "%1$s محبوب‌ترین دستیار خواننده‌های شماست با %2$s از کلیک‌ها."
+
+msgid "Most clicks come from <strong>mobile</strong>. Try the floating button for easy thumb access."
+msgstr "بیشتر کلیک‌ها از <strong>موبایل</strong> است. دکمه شناور را امتحان کنید تا با انگشت راحت‌تر در دسترس باشد."
+
+#, php-format
+msgid "Your busiest day was %s."
+msgstr "پرکارترین روز شما %s بود."
+
+#, php-format
+msgid "“%s” is the post readers summarize most."
+msgstr "«%s» نوشته‌ای است که بیشتر از همه خلاصه می‌شود."
+
+msgid "Hide AI buttons on this post"
+msgstr "مخفی کردن دکمه‌های AI در این نوشته"
+
+msgid "Custom prompt (optional)"
+msgstr "پرامپت دلخواه (اختیاری)"
+
+msgid "Overrides the default mode for this post. Supports {url} and {title}."
+msgstr "به‌جای حالت پیش‌فرض برای این نوشته استفاده می‌شود. از {url} و {title} پشتیبانی می‌کند."
+
+msgid "General"
+msgstr "عمومی"
+
+msgid "AI assistants"
+msgstr "دستیارهای هوش مصنوعی"
+
+msgid "Prompts & modes"
+msgstr "پرامپت‌ها و حالت‌ها"
+
+msgid "Design"
+msgstr "طراحی"
+
+msgid "Placement"
+msgstr "محل نمایش"
+
+msgid "Floating button"
+msgstr "دکمه شناور"
+
+msgid "Analytics & SEO"
+msgstr "آمار و سئو"
+
+msgid "Tools"
+msgstr "ابزارها"
+
+msgid "Summarize with AI — Settings"
+msgstr "خلاصه با هوش مصنوعی — تنظیمات"
+
+msgid "Settings sections"
+msgstr "بخش‌های تنظیمات"
+
+msgid "You have unsaved changes"
+msgstr "تغییرات ذخیره نشده دارید"
+
+msgid "Save changes"
+msgstr "ذخیره تغییرات"
+
+msgid "Live preview"
+msgstr "پیش‌نمایش زنده"
+
+msgid "Updates as you edit. Save to apply on your site."
+msgstr "همزمان با ویرایش به‌روز می‌شود. برای اعمال روی سایت ذخیره کنید."
+
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد."
+
+msgid "Settings imported."
+msgstr "تنظیمات وارد شد."
+
+msgid "Settings restored to defaults."
+msgstr "تنظیمات به حالت پیش‌فرض برگشت."
+
+msgid "Analytics data deleted."
+msgstr "داده‌های آمار حذف شد."
+
+msgid "That file could not be imported. Please choose a valid export."
+msgstr "این فایل قابل وارد کردن نیست. لطفاً یک فایل خروجی معتبر انتخاب کنید."
+
+msgid "The label and icon shown next to the buttons."
+msgstr "عنوان و آیکونی که کنار دکمه‌ها نمایش داده می‌شود."
+
+msgid "Label"
+msgstr "عنوان"
+
+msgid "Leave empty to hide the label."
+msgstr "برای مخفی کردن عنوان، خالی بگذارید."
+
+msgid "Upload"
+msgstr "آپلود"
+
+msgid "None"
+msgstr "هیچ"
+
+msgid "Media library"
+msgstr "کتابخانه رسانه"
+
+msgid "Label icon"
+msgstr "آیکون عنوان"
+
+msgid "Color applies to the built-in icons; uploaded icons keep their own colors."
+msgstr "رنگ فقط روی آیکون‌های آماده اعمال می‌شود؛ آیکون آپلودی رنگ خودش را دارد."
+
+msgid "Icon color & size"
+msgstr "رنگ و اندازه آیکون"
+
+msgid "Color"
+msgstr "رنگ"
+
+msgid "Copy prompt button"
+msgstr "دکمه کپی پرامپت"
+
+msgid "Lets readers copy the prompt to use in any AI app."
+msgstr "خواننده می‌تواند پرامپت را کپی کند و در هر اپ هوش مصنوعی استفاده کند."
+
+msgid "Open in a new tab"
+msgstr "باز شدن در تب جدید"
+
+msgid "Choose, rename and drag to reorder the assistants."
+msgstr "دستیارها را انتخاب کنید، نامشان را عوض کنید و با کشیدن مرتبشان کنید."
+
+msgid "Display name"
+msgstr "نام نمایشی"
+
+msgid "This assistant has no prompt link, so the prompt is copied and the visitor pastes it."
+msgstr "این دستیار لینک پرامپت ندارد؛ پرامپت کپی می‌شود و بازدیدکننده آن را جای‌گذاری می‌کند."
+
+msgid "copy & paste"
+msgstr "کپی و جای‌گذاری"
+
+msgid "custom"
+msgstr "سفارشی"
+
+#, php-format
+msgid "Show %s"
+msgstr "نمایش %s"
+
+msgid "Custom assistants"
+msgstr "دستیارهای سفارشی"
+
+msgid "One per line: <code>id|Name|https://example.com/?q={q}|icon-url</code>. Without <code>{q}</code> the prompt is copied instead."
+msgstr "هر خط یک دستیار: <code>id|Name|https://example.com/?q={q}|icon-url</code>. بدون <code>{q}</code> پرامپت کپی می‌شود."
+
+msgid "Modes let readers pick what the AI should do with the page."
+msgstr "با حالت‌ها خواننده انتخاب می‌کند AI با صفحه چه کار کند."
+
+msgid "Show mode switcher"
+msgstr "نمایش انتخابگر حالت"
+
+msgid "When off, only the default mode is used."
+msgstr "اگر خاموش باشد فقط حالت پیش‌فرض استفاده می‌شود."
+
+msgid "Default mode"
+msgstr "حالت پیش‌فرض"
+
+msgid "Variables:"
+msgstr "متغیرها:"
+
+msgid "Mode name"
+msgstr "نام حالت"
+
+msgid "Enabled"
+msgstr "فعال"
+
+msgid "Prompt"
+msgstr "پرامپت"
+
+msgid "Make the buttons match your theme."
+msgstr "دکمه‌ها را هماهنگ با قالب سایت کنید."
+
+msgid "Style"
+msgstr "سبک"
+
+msgid "Color scheme"
+msgstr "طرح رنگ"
+
+msgid "Alignment"
+msgstr "چینش"
+
+msgid "Show assistant icons"
+msgstr "نمایش آیکون دستیارها"
+
+msgid "Brand-colored icons"
+msgstr "آیکون‌ها با رنگ برند"
+
+msgid "Tint each icon with the assistant’s brand color."
+msgstr "هر آیکون با رنگ برند همان دستیار نمایش داده شود."
+
+msgid "Colors"
+msgstr "رنگ‌ها"
+
+msgid "Used by the light scheme; dark uses its own palette."
+msgstr "برای طرح روشن؛ طرح تیره پالت خودش را دارد."
+
+msgid "Accent"
+msgstr "رنگ اصلی"
+
+msgid "Background"
+msgstr "پس‌زمینه"
+
+msgid "Text"
+msgstr "متن"
+
+msgid "Border"
+msgstr "حاشیه"
+
+msgid "Hover border"
+msgstr "حاشیه هاور"
+
+msgid "Corner radius"
+msgstr "گردی گوشه"
+
+msgid "Where the buttons appear automatically."
+msgstr "جایی که دکمه‌ها به‌صورت خودکار نمایش داده می‌شوند."
+
+msgid "Position"
+msgstr "موقعیت"
+
+msgid "Use the shortcode <code>[summarize_with_ai]</code>, the block or the Elementor widget for manual placement."
+msgstr "برای جای‌گذاری دستی از شورت‌کد <code>[summarize_with_ai]</code>، بلاک یا ویجت المنتور استفاده کنید."
+
+msgid "Post types"
+msgstr "نوع نوشته‌ها"
+
+msgid "Minimum words"
+msgstr "حداقل تعداد کلمه"
+
+msgid "Skip short posts. 0 shows on every post."
+msgstr "نوشته‌های کوتاه را رد می‌کند. ۰ یعنی همه نوشته‌ها."
+
+msgid "Exclude categories"
+msgstr "دسته‌های مستثنی"
+
+msgid "Skip Elementor pages"
+msgstr "رد کردن صفحات المنتوری"
+
+msgid "Don’t auto-insert on pages built with Elementor; place the widget there instead."
+msgstr "در صفحاتی که با المنتور ساخته شده‌اند درج خودکار نشود؛ به‌جایش از ویجت استفاده کنید."
+
+msgid "A floating button that follows readers as they scroll."
+msgstr "دکمه‌ای شناور که هنگام اسکرول همراه خواننده است."
+
+msgid "Enable floating button"
+msgstr "فعال‌سازی دکمه شناور"
+
+msgid "Button text"
+msgstr "متن دکمه"
+
+msgid "Hidden on small screens, where only the icon shows."
+msgstr "در صفحه‌های کوچک مخفی می‌شود و فقط آیکون نمایش داده می‌شود."
+
+msgid "Side"
+msgstr "سمت"
+
+msgid "Show on"
+msgstr "نمایش در"
+
+msgid "Measure usage and help AI assistants understand your site."
+msgstr "میزان استفاده را بسنجید و به دستیارهای هوش مصنوعی کمک کنید سایت شما را بفهمند."
+
+msgid "Click analytics"
+msgstr "آمار کلیک"
+
+msgid "Anonymous daily totals. No cookies, no IPs, no personal data."
+msgstr "مجموع‌های روزانه ناشناس. بدون کوکی، بدون IP، بدون داده شخصی."
+
+msgid "Track impressions"
+msgstr "ثبت نمایش"
+
+msgid "Needed for CTR. Adds one tiny background request per page view."
+msgstr "برای CTR لازم است. در هر بازدید یک درخواست پس‌زمینه بسیار کوچک ارسال می‌کند."
+
+msgid "Keep data for (days)"
+msgstr "نگهداری داده (روز)"
+
+msgid "UTM tags"
+msgstr "برچسب‌های UTM"
+
+msgid "Adds <code>utm_source</code> and <code>utm_medium</code> to the shared link so AI-referred visits show up in Google Analytics."
+msgstr "<code>utm_source</code> و <code>utm_medium</code> را به لینک اضافه می‌کند تا ورودی‌هایی که از هوش مصنوعی می‌آیند در گوگل آنالیتیکس دیده شوند."
+
+msgid "UTM source"
+msgstr "منبع UTM"
+
+msgid "Serve /llms.txt"
+msgstr "ارائه /llms.txt"
+
+#, php-format
+msgid "A Markdown index of your best content for AI crawlers, at <code>%s</code>."
+msgstr "فهرستی Markdown از بهترین محتوای شما برای خزنده‌های هوش مصنوعی، در <code>%s</code>."
+
+msgid "Posts listed in llms.txt"
+msgstr "تعداد نوشته‌ها در llms.txt"
+
+msgid "llms.txt content"
+msgstr "محتوای llms.txt"
+
+msgid "A physical llms.txt file exists in your site root and will be served instead of the generated one."
+msgstr "یک فایل llms.txt واقعی در ریشه سایت وجود دارد و به‌جای فایل تولیدشده نمایش داده می‌شود."
+
+msgid "Back up, move or reset your configuration."
+msgstr "پیکربندی را پشتیبان بگیرید، منتقل کنید یا بازنشانی کنید."
+
+msgid "Export settings"
+msgstr "خروجی تنظیمات"
+
+msgid "Download a JSON file to copy this setup to another site."
+msgstr "یک فایل JSON دانلود کنید تا همین تنظیمات را روی سایت دیگری بیاورید."
+
+msgid "Download JSON"
+msgstr "دانلود JSON"
+
+msgid "Import settings"
+msgstr "ورود تنظیمات"
+
+msgid "Replace the current settings with an exported file."
+msgstr "تنظیمات فعلی را با یک فایل خروجی جایگزین کنید."
+
+msgid "Import"
+msgstr "وارد کردن"
+
+msgid "Restore all settings to their defaults?"
+msgstr "همه تنظیمات به حالت پیش‌فرض برگردد؟"
+
+msgid "Reset settings"
+msgstr "بازنشانی تنظیمات"
+
+msgid "Go back to the default configuration. Analytics are kept."
+msgstr "بازگشت به تنظیمات پیش‌فرض. آمار حفظ می‌شود."
+
+msgid "Permanently delete all analytics data?"
+msgstr "همه داده‌های آمار برای همیشه حذف شود؟"
+
+msgid "Delete analytics"
+msgstr "حذف آمار"
+
+msgid "Remove all recorded clicks and impressions."
+msgstr "همه کلیک‌ها و نمایش‌های ثبت‌شده حذف می‌شود."
+
+msgid "Delete data"
+msgstr "حذف داده‌ها"
+
+msgid "Developer usage"
+msgstr "استفاده برای توسعه‌دهندگان"
+
+msgid "You are not allowed to do that."
+msgstr "شما اجازه این کار را ندارید."
+
+#, php-format
+msgid "Prompt copied. Paste it in %s."
+msgstr "پرامپت کپی شد. آن را در %s جای‌گذاری کنید."
+
+msgid "Prompt copied to clipboard."
+msgstr "پرامپت کپی شد."
+
+msgid "Could not copy. Please copy the prompt manually."
+msgstr "کپی نشد. لطفاً پرامپت را دستی کپی کنید."
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "Stars (solid)"
+msgstr "ستاره‌ها (توپر)"
+
+msgid "Stars (duotone)"
+msgstr "ستاره‌ها (دورنگ)"
+
+msgid "Stars (line)"
+msgstr "ستاره‌ها (خطی)"
+
+msgid "Magic wand"
+msgstr "چوب جادو"
+
+msgid "Sparkle"
+msgstr "درخشش"
+
+msgid "Default (from settings)"
+msgstr "پیش‌فرض (از تنظیمات)"
+
+msgid "Content"
+msgstr "محتوا"
+
+msgid "Custom prompt"
+msgstr "پرامپت دلخواه"
+
+msgid "Start"
+msgstr "شروع"
+
+msgid "Center"
+msgstr "وسط"
+
+msgid "End"
+msgstr "پایان"
+
+msgid "Text color"
+msgstr "رنگ متن"
+
+msgid "Icon color"
+msgstr "رنگ آیکون"
+
+msgid "Icon size"
+msgstr "اندازه آیکون"
+
+msgid "Buttons"
+msgstr "دکمه‌ها"
+
+msgid "Normal"
+msgstr "عادی"
+
+msgid "Hover"
+msgstr "هاور"
+
+msgid "Border color"
+msgstr "رنگ حاشیه"
+
+msgid "Padding"
+msgstr "فاصله داخلی"
+
+msgid "Spacing"
+msgstr "فاصله"
+
+msgid "Pick at least one AI assistant."
+msgstr "حداقل یک دستیار هوش مصنوعی انتخاب کنید."
+
+msgid "What should the AI do?"
+msgstr "هوش مصنوعی چه کار کند؟"
+
+#, php-format
+msgid "Copy the prompt and open %s"
+msgstr "کپی پرامپت و باز کردن %s"
+
+#, php-format
+msgid "Open in %s"
+msgstr "باز کردن در %s"
+
+msgid "Summary"
+msgstr "خلاصه"
+
+msgid "Read this page and give me a short, well-structured summary of its content. {url}"
+msgstr "محتوای این صفحه را بخوان و چکیده‌ی آن را به‌صورت کوتاه و ساختارمند ارائه بده. {url}"
+
+msgid "Key points"
+msgstr "نکات کلیدی"
+
+msgid "Read this page and list its key takeaways as short bullet points. {url}"
+msgstr "این صفحه را بخوان و نکات کلیدی آن را به‌صورت فهرست کوتاه بنویس. {url}"
+
+msgid "Explain simply"
+msgstr "توضیح ساده"
+
+msgid "Read this page and explain it in simple words, as if I were a complete beginner. {url}"
+msgstr "این صفحه را بخوان و آن را با زبان ساده توضیح بده، طوری که یک مبتدی کامل بفهمد. {url}"
+
+msgid "Translate"
+msgstr "ترجمه"
+
+msgid "Read this page and translate its main content into English. {url}"
+msgstr "این صفحه را بخوان و محتوای اصلی آن را به انگلیسی ترجمه کن. {url}"
+
+msgid "Ask questions"
+msgstr "پرسش و پاسخ"
+
+msgid "Read this page. Give me a two-line overview, then wait for my questions about it. {url}"
+msgstr "این صفحه را بخوان، در دو خط معرفی‌اش کن و بعد منتظر سؤال‌های من درباره آن بمان. {url}"
+
+msgid "Summarize with:"
+msgstr "خلاصه در:"
+
+msgid "Before content"
+msgstr "ابتدای محتوا"
+
+msgid "After content"
+msgstr "انتهای محتوا"
+
+msgid "Before and after"
+msgstr "ابتدا و انتها"
+
+msgid "Manual only (shortcode, block, Elementor)"
+msgstr "فقط دستی (شورت‌کد، بلاک، المنتور)"
+
+msgid "Outline"
+msgstr "خطی"
+
+msgid "Filled"
+msgstr "توپر"
+
+msgid "Pill"
+msgstr "کپسولی"
+
+msgid "Minimal"
+msgstr "مینیمال"
+
+msgid "Icons only"
+msgstr "فقط آیکون"
+
+msgid "Card"
+msgstr "کارتی"
+
+msgid "Light"
+msgstr "روشن"
+
+msgid "Dark"
+msgstr "تیره"
+
+msgid "Match visitor system"
+msgstr "هماهنگ با سیستم بازدیدکننده"
+
+msgid "Right"
+msgstr "راست"
+
+msgid "Left"
+msgstr "چپ"
+
+msgid "All devices"
+msgstr "همه دستگاه‌ها"
+
+msgid "Mobile only"
+msgstr "فقط موبایل"
+
+msgid "Desktop only"
+msgstr "فقط دسکتاپ"
+
+msgid "Leave empty to use the label from settings."
+msgstr "برای استفاده از عنوان تنظیمات، خالی بگذارید."
+
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d روز"
+

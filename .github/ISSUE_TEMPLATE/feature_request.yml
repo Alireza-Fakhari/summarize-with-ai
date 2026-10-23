@@ -1,0 +1,15 @@
+name: Feature request / new AI assistant
+description: Suggest an idea or an assistant to support
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: For a new assistant, include its prompt URL format (e.g. https://example.com/?q=…).
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it useful?

@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build plugin zip (respects .distignore)
+        run: |
+          mkdir -p build/summarize-with-ai
+          rsync -a --exclude-from=.distignore ./ build/summarize-with-ai/
+          cd build && zip -rq ../summarize-with-ai.zip summarize-with-ai
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: summarize-with-ai.zip
+          generate_release_notes: true

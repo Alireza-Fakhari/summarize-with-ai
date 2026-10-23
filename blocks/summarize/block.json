@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "swai/summarize",
+	"version": "1.0.0",
+	"title": "Summarize with AI",
+	"category": "widgets",
+	"icon": "superhero",
+	"description": "Buttons that send this post to ChatGPT, Perplexity, Claude and other AI assistants.",
+	"keywords": [ "ai", "chatgpt", "summary", "perplexity", "claude" ],
+	"textdomain": "summarize-with-ai",
+	"attributes": {
+		"services": { "type": "array", "default": [] },
+		"label": { "type": "string" },
+		"template": { "type": "string", "default": "" },
+		"theme": { "type": "string", "default": "" },
+		"mode": { "type": "string", "default": "" },
+		"showModes": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true, "padding": true }
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
