@@ -235,8 +235,15 @@ class ElementorWidget extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
-				'name'     => 'btn_typography',
-				'selector' => '{{WRAPPER}} .swai__btn',
+				'name'           => 'btn_typography',
+				'selector'       => '{{WRAPPER}} .swai__btn',
+				'fields_options' => array(
+					'font_family'    => array( 'selectors' => array( '{{SELECTOR}}' => 'font-family: "{{VALUE}}", sans-serif !important;' ) ),
+					'font_size'      => array( 'selectors' => array( '{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}} !important;' ) ),
+					'font_weight'    => array( 'selectors' => array( '{{SELECTOR}}' => 'font-weight: {{VALUE}} !important;' ) ),
+					'text_transform' => array( 'selectors' => array( '{{SELECTOR}}' => 'text-transform: {{VALUE}} !important;' ) ),
+					'letter_spacing' => array( 'selectors' => array( '{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}} !important;' ) ),
+				),
 			)
 		);
 		$this->start_controls_tabs( 'btn_states' );
@@ -261,7 +268,7 @@ class ElementorWidget extends Widget_Base {
 				array(
 					'label'     => __( 'Background', 'summarize-with-ai' ),
 					'type'      => Controls_Manager::COLOR,
-					'selectors' => array( $selector => 'background-color: {{VALUE}};' ),
+					'selectors' => array( $selector => 'background-color: {{VALUE}} !important;' ),
 				)
 			);
 			$this->add_control(
@@ -269,14 +276,19 @@ class ElementorWidget extends Widget_Base {
 				array(
 					'label'     => __( 'Border color', 'summarize-with-ai' ),
 					'type'      => Controls_Manager::COLOR,
-					'selectors' => array( $selector => 'border-color: {{VALUE}};' ),
+					'selectors' => array( $selector => 'border-color: {{VALUE}} !important;' ),
 				)
 			);
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
 				array(
-					'name'     => 'btn_shadow_' . $state,
-					'selector' => $selector,
+					'name'           => 'btn_shadow_' . $state,
+					'selector'       => $selector,
+					'fields_options' => array(
+						'box_shadow' => array(
+							'selectors' => array( '{{SELECTOR}}' => 'box-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{SPREAD}}px {{COLOR}} {{box_shadow_position.VALUE}} !important;' ),
+						),
+					),
 				)
 			);
 			$this->end_controls_tab();
@@ -285,9 +297,15 @@ class ElementorWidget extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			array(
-				'name'      => 'btn_border',
-				'selector'  => '{{WRAPPER}} .swai__btn',
-				'separator' => 'before',
+				'name'           => 'btn_border',
+				'selector'       => '{{WRAPPER}} .swai__btn',
+				'separator'      => 'before',
+				// Our CSS is !important so themes cannot restyle it; match that here.
+				'fields_options' => array(
+					'border' => array( 'selectors' => array( '{{SELECTOR}}' => 'border-style: {{VALUE}} !important;' ) ),
+					'width'  => array( 'selectors' => array( '{{SELECTOR}}' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;' ) ),
+					'color'  => array( 'selectors' => array( '{{SELECTOR}}' => 'border-color: {{VALUE}} !important;' ) ),
+				),
 			)
 		);
 		$this->add_responsive_control(
@@ -296,7 +314,7 @@ class ElementorWidget extends Widget_Base {
 				'label'      => __( 'Corner radius', 'summarize-with-ai' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
-				'selectors'  => array( '{{WRAPPER}} .swai__btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ),
+				'selectors'  => array( '{{WRAPPER}} .swai__btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -305,7 +323,7 @@ class ElementorWidget extends Widget_Base {
 				'label'      => __( 'Padding', 'summarize-with-ai' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em' ),
-				'selectors'  => array( '{{WRAPPER}} .swai__btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ),
+				'selectors'  => array( '{{WRAPPER}} .swai__btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -335,7 +353,7 @@ class ElementorWidget extends Widget_Base {
 						'max' => 40,
 					),
 				),
-				'selectors'  => array( '{{WRAPPER}} .swai__btn .swai__icon' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};' ),
+				'selectors'  => array( '{{WRAPPER}} .swai__btn .swai__icon' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}} !important;' ),
 			)
 		);
 		$this->end_controls_section();

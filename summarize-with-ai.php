@@ -3,7 +3,7 @@
  * Plugin Name:       Summarize with AI
  * Plugin URI:        https://github.com/Alireza-Fakhari/summarize-with-ai
  * Description:       Let readers summarize any post with ChatGPT, Perplexity, Claude, Gemini and more in one click. Prompt modes, privacy-first analytics, llms.txt, floating button, Gutenberg block and Elementor widget.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            Alireza Fakhari
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SWAI_VERSION', '1.0.0' );
+define( 'SWAI_VERSION', '1.0.1' );
 define( 'SWAI_FILE', __FILE__ );
 define( 'SWAI_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SWAI_URL', plugin_dir_url( __FILE__ ) );

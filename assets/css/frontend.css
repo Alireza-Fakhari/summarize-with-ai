@@ -1,4 +1,13 @@
-/* Summarize with AI — front end. Logical properties keep it RTL-ready. */
+/*
+ * Summarize with AI — front end.
+ *
+ * Themes and page builders (Elementor kits, Astra, etc.) style bare `button`
+ * and `a` elements with selectors like `.elementor-kit-5 button:hover`.
+ * To look the same on every site, interactive elements are first reset and
+ * then styled with `!important`, scoped under `.swai` / `.swai-fab` so
+ * nothing leaks out. Logical properties keep everything RTL-ready.
+ */
+
 .swai {
 	--swai-bg: #fff;
 	--swai-text: #1e2a4a;
@@ -20,29 +29,79 @@
 .swai *,
 .swai *::before,
 .swai *::after { box-sizing: border-box; }
+.swai [hidden] { display: none !important; }
 
-.swai__row {
+/* ---------- Reset theme styles on our controls ---------- */
+.swai .swai__btn,
+.swai .swai__mode,
+.swai-fab .swai-fab__toggle,
+.swai-fab .swai-fab__close {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	inline-size: auto !important;
+	block-size: auto !important;
+	min-inline-size: 0 !important;
+	max-inline-size: none !important;
+	margin: 0 !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: none !important;
+	box-shadow: none !important;
+	color: inherit !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-style: normal !important;
+	font-weight: inherit !important;
+	letter-spacing: normal !important;
+	line-height: inherit !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	text-shadow: none !important;
+	text-transform: none !important;
+	white-space: nowrap !important;
+	opacity: 1 !important;
+	filter: none !important;
+	transform: none;
+	cursor: pointer !important;
+}
+.swai .swai__btn::before,
+.swai .swai__btn::after,
+.swai .swai__mode::before,
+.swai .swai__mode::after { content: none !important; }
+
+/* ---------- Layout ---------- */
+.swai .swai__row {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: var(--swai-justify);
 	gap: 10px;
 }
-.swai__label {
+.swai .swai__label {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
+	color: var(--swai-text);
 	font-weight: 600;
 }
-.swai__icon {
+.swai .swai__icon {
 	display: inline-flex;
 	flex-shrink: 0;
 	inline-size: 18px;
 	block-size: 18px;
+	margin: 0;
+	padding: 0;
 }
-.swai__icon svg,
-img.swai__icon { inline-size: 100%; block-size: 100%; object-fit: contain; }
-.swai__letter {
+.swai .swai__icon svg,
+.swai img.swai__icon {
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+	max-inline-size: none;
+	margin: 0;
+	object-fit: contain;
+}
+.swai .swai__letter {
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
@@ -50,87 +109,128 @@ img.swai__icon { inline-size: 100%; block-size: 100%; object-fit: contain; }
 	color: #fff;
 	font-size: 11px;
 	font-weight: 700;
+	line-height: 1;
 }
 
-/* Mode switcher (segmented control). */
-.swai__modes {
+/* ---------- Mode switcher (segmented control) ---------- */
+.swai .swai__modes {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: var(--swai-justify);
 	gap: 4px;
 }
-.swai__mode {
-	appearance: none;
-	margin: 0;
-	padding: 5px 12px;
-	border: 1px solid transparent;
-	border-radius: 999px;
-	background: transparent;
-	color: var(--swai-muted);
-	font: inherit;
-	font-size: 13px;
-	cursor: pointer;
-	transition: background-color .15s, color .15s;
+.swai .swai__mode {
+	padding: 5px 12px !important;
+	border: 1px solid transparent !important;
+	border-radius: 999px !important;
+	color: var(--swai-muted) !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	transition: background-color .15s, color .15s, border-color .15s;
 }
-.swai__mode:hover { color: var(--swai-text); background: color-mix(in srgb, var(--swai-accent) 8%, transparent); }
-.swai__mode[aria-pressed="true"] {
-	color: var(--swai-accent);
-	background: color-mix(in srgb, var(--swai-accent) 12%, transparent);
-	border-color: color-mix(in srgb, var(--swai-accent) 25%, transparent);
-	font-weight: 600;
+.swai .swai__mode:hover,
+.swai .swai__mode:focus {
+	background: color-mix(in srgb, var(--swai-accent) 8%, transparent) !important;
+	color: var(--swai-text) !important;
+}
+.swai .swai__mode[aria-pressed="true"] {
+	border-color: color-mix(in srgb, var(--swai-accent) 25%, transparent) !important;
+	background: color-mix(in srgb, var(--swai-accent) 12%, transparent) !important;
+	color: var(--swai-accent) !important;
+	font-weight: 600 !important;
 }
 
-/* Buttons. */
-.swai__btn {
-	appearance: none;
-	display: inline-flex;
-	align-items: center;
-	gap: 9px;
-	min-block-size: 40px;
-	margin: 0;
-	padding: 4px 14px;
-	border: 1px solid var(--swai-border);
-	border-radius: var(--swai-radius);
-	background: var(--swai-bg);
+/* ---------- Buttons ---------- */
+.swai .swai__btn {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 9px !important;
+	min-block-size: 40px !important;
+	padding: 4px 14px !important;
+	border: 1px solid var(--swai-border) !important;
+	border-radius: var(--swai-radius) !important;
+	background: var(--swai-bg) !important;
 	color: var(--swai-text) !important;
-	font: inherit;
-	text-decoration: none !important;
-	cursor: pointer;
+	font-size: 14px !important;
 	transition: border-color .2s, box-shadow .2s, transform .2s, background-color .2s;
 }
-.swai__btn:hover { border-color: var(--swai-hover); box-shadow: 0 2px 8px rgb(15 23 42 / 6%); }
-.swai__btn:active { transform: translateY(1px); }
-.swai__btn:focus-visible,
-.swai__mode:focus-visible,
-.swai-fab__toggle:focus-visible { outline: 2px solid var(--swai-accent); outline-offset: 2px; }
-.swai__copy { padding-inline: 11px; color: var(--swai-muted) !important; }
-.swai__copy.is-done { color: #16a34a !important; border-color: #16a34a; }
-.swai--brand .swai__btn .swai__icon { color: var(--swai-brand); }
+.swai .swai__btn:hover,
+.swai .swai__btn:focus {
+	border-color: var(--swai-hover) !important;
+	background: var(--swai-bg) !important;
+	color: var(--swai-text) !important;
+	box-shadow: 0 2px 8px rgb(15 23 42 / 6%) !important;
+}
+.swai .swai__btn:active { transform: translateY(1px); }
+.swai .swai__name { color: inherit; font: inherit; }
+.swai .swai__copy { padding-inline: 11px !important; color: var(--swai-muted) !important; }
+.swai .swai__copy.is-done { border-color: #16a34a !important; color: #16a34a !important; }
+.swai.swai--brand .swai__btn .swai__icon { color: var(--swai-brand); }
 
-/* Templates. */
-.swai--filled .swai__btn { background: var(--swai-accent); border-color: var(--swai-accent); color: #fff !important; }
-.swai--filled .swai__btn:hover { filter: brightness(1.08); }
-.swai--pill .swai__btn { border-radius: 999px; }
-.swai--minimal .swai__btn { border-color: transparent; background: transparent; padding-inline: 8px; }
-.swai--minimal .swai__btn:hover { background: color-mix(in srgb, var(--swai-accent) 8%, transparent); box-shadow: none; }
-.swai--icons .swai__name { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.swai--icons .swai__btn { inline-size: 40px; padding: 0; justify-content: center; border-radius: 50%; }
-.swai--card {
+.swai .swai__btn:focus-visible,
+.swai .swai__mode:focus-visible,
+.swai-fab .swai-fab__toggle:focus-visible,
+.swai-fab .swai-fab__close:focus-visible {
+	outline: 2px solid var(--swai-accent) !important;
+	outline-offset: 2px !important;
+}
+
+/* ---------- Templates ---------- */
+.swai.swai--filled .swai__btn {
+	border-color: var(--swai-accent) !important;
+	background: var(--swai-accent) !important;
+	color: #fff !important;
+}
+.swai.swai--filled .swai__btn:hover,
+.swai.swai--filled .swai__btn:focus {
+	border-color: var(--swai-accent) !important;
+	background: var(--swai-accent) !important;
+	color: #fff !important;
+	filter: brightness(1.08) !important;
+}
+.swai.swai--pill .swai__btn { border-radius: 999px !important; }
+.swai.swai--minimal .swai__btn {
+	padding-inline: 8px !important;
+	border-color: transparent !important;
+	background: transparent !important;
+}
+.swai.swai--minimal .swai__btn:hover,
+.swai.swai--minimal .swai__btn:focus {
+	border-color: transparent !important;
+	background: color-mix(in srgb, var(--swai-accent) 8%, transparent) !important;
+	box-shadow: none !important;
+}
+.swai.swai--icons .swai__name {
+	position: absolute;
+	inline-size: 1px;
+	block-size: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+.swai.swai--icons .swai__btn {
+	inline-size: 40px !important;
+	block-size: 40px !important;
+	padding: 0 !important;
+	border-radius: 50% !important;
+}
+.swai.swai--card {
 	padding: 16px 18px;
 	border: 1px solid var(--swai-border);
 	border-radius: calc(var(--swai-radius) + 6px);
 	background: linear-gradient(135deg, color-mix(in srgb, var(--swai-accent) 7%, var(--swai-bg)), var(--swai-bg) 60%);
 }
 
-/* Dark theme (explicit or following the visitor's system). */
-.swai--dark {
+/* ---------- Dark theme (explicit or following the visitor's system) ---------- */
+.swai.swai--dark {
 	--swai-bg: #161b2e;
 	--swai-text: #e6e9f5;
 	--swai-border: #2b3350;
 	--swai-hover: #4a557c;
 }
 @media (prefers-color-scheme: dark) {
-	.swai--auto {
+	.swai.swai--auto {
 		--swai-bg: #161b2e;
 		--swai-text: #e6e9f5;
 		--swai-border: #2b3350;
@@ -138,8 +238,8 @@ img.swai__icon { inline-size: 100%; block-size: 100%; object-fit: contain; }
 	}
 }
 
-/* Toast. */
-.swai__toast {
+/* ---------- Toast ---------- */
+.swai .swai__toast {
 	position: absolute;
 	inset-block-end: calc(100% + 6px);
 	inset-inline-start: 0;
@@ -154,34 +254,39 @@ img.swai__icon { inline-size: 100%; block-size: 100%; object-fit: contain; }
 	pointer-events: none;
 	transition: opacity .2s, transform .2s;
 }
-.swai__toast.is-visible { opacity: 1; transform: none; }
+.swai .swai__toast.is-visible { opacity: 1; transform: none; }
 
-/* Floating action button. */
+/* ---------- Floating action button ---------- */
 .swai-fab {
 	position: fixed;
 	inset-block-end: 20px;
 	z-index: 99990;
 	font-size: 14px;
+	line-height: 1.4;
 }
 .swai-fab--right { inset-inline-end: 20px; }
 .swai-fab--left { inset-inline-start: 20px; }
-.swai-fab__toggle {
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	padding: 12px 18px;
-	border: 0;
-	border-radius: 999px;
-	background: var(--swai-accent);
-	color: #fff;
-	font: inherit;
-	font-weight: 600;
-	box-shadow: 0 10px 30px color-mix(in srgb, var(--swai-accent) 40%, transparent);
-	cursor: pointer;
+.swai-fab .swai-fab__toggle {
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 8px !important;
+	padding: 12px 18px !important;
+	border-radius: 999px !important;
+	background: var(--swai-accent) !important;
+	color: #fff !important;
+	font-weight: 600 !important;
+	box-shadow: 0 10px 30px color-mix(in srgb, var(--swai-accent) 40%, transparent) !important;
 	transition: transform .2s;
 }
-.swai-fab__toggle:hover { transform: translateY(-2px); }
-.swai-fab__panel {
+.swai-fab .swai-fab__toggle:hover,
+.swai-fab .swai-fab__toggle:focus {
+	background: var(--swai-accent) !important;
+	color: #fff !important;
+	transform: translateY(-2px);
+}
+.swai-fab .swai-fab__toggle .swai__icon { display: inline-flex; inline-size: 18px; block-size: 18px; }
+.swai-fab .swai-fab__toggle svg { inline-size: 100%; block-size: 100%; }
+.swai-fab .swai-fab__panel {
 	position: absolute;
 	inset-block-end: calc(100% + 12px);
 	inset-inline-end: 0;
@@ -192,28 +297,30 @@ img.swai__icon { inline-size: 100%; block-size: 100%; object-fit: contain; }
 	box-shadow: 0 20px 50px rgb(15 23 42 / 18%);
 	animation: swai-pop .18s ease-out;
 }
+.swai-fab .swai-fab__panel[hidden] { display: none; }
 .swai-fab--left .swai-fab__panel { inset-inline-end: auto; inset-inline-start: 0; }
-.swai-fab__panel .swai { margin: 0; }
-.swai-fab__panel .swai__row { flex-direction: column; align-items: stretch; }
-.swai-fab__close {
-	position: absolute;
+.swai-fab .swai-fab__panel .swai { margin: 0; }
+.swai-fab .swai-fab__panel .swai__row { flex-direction: column; align-items: stretch; }
+.swai-fab .swai-fab__close {
+	position: absolute !important;
 	inset-block-start: 10px;
 	inset-inline-end: 10px;
-	inline-size: 28px;
-	block-size: 28px;
-	padding: 5px;
-	border: 0;
-	border-radius: 50%;
-	background: transparent;
-	color: #64748b;
-	cursor: pointer;
+	display: grid !important;
+	place-items: center !important;
+	inline-size: 28px !important;
+	block-size: 28px !important;
+	padding: 5px !important;
+	border-radius: 50% !important;
+	color: #64748b !important;
 }
-.swai-fab__close:hover { background: #f1f5f9; }
+.swai-fab .swai-fab__close:hover,
+.swai-fab .swai-fab__close:focus { background: #f1f5f9 !important; color: #334155 !important; }
+.swai-fab .swai-fab__close svg { inline-size: 100%; block-size: 100%; }
 @media (min-width: 768px) { .swai-fab--mobile { display: none; } }
 @media (max-width: 767px) {
 	.swai-fab--desktop { display: none; }
-	.swai-fab__text { display: none; }
-	.swai-fab__toggle { padding: 14px; }
+	.swai-fab .swai-fab__text { display: none; }
+	.swai-fab .swai-fab__toggle { padding: 14px !important; }
 }
 @keyframes swai-pop { from { opacity: 0; transform: translateY(8px) scale(.98); } }
 

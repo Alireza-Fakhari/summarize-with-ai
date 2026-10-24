@@ -4,7 +4,7 @@ Tags: ai, chatgpt, summary, perplexity, llms.txt
 Requires at least: 6.3
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ No. The plugin only builds links. The visitor's browser opens the assistant they
 No. Only anonymous daily totals are stored in your own database.
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix: theme and Elementor styles no longer override the buttons.
 
 = 1.0.0 =
 * Initial release.
